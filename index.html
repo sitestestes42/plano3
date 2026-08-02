@@ -2,13 +2,14 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <title>Endomorfo Manual · Treino em Casa</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
+    /* ===== RESET & BASE ===== */
     * {
       margin: 0;
       padding: 0;
@@ -21,6 +22,8 @@
       color: #f1f5f9;
       line-height: 1.6;
       scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     .container {
@@ -29,6 +32,7 @@
       padding: 0 20px;
     }
 
+    /* ===== GLASSMORPHISM ===== */
     .glass {
       background: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(10px);
@@ -44,6 +48,7 @@
       transform: translateY(-3px);
     }
 
+    /* ===== CORES ENDOMORFO ===== */
     :root {
       --primary: #EA580C;
       --primary-light: #F59E0B;
@@ -63,6 +68,7 @@
       text-transform: uppercase;
     }
 
+    /* ===== TIPOGRAFIA ===== */
     h1, h2, h3 {
       font-weight: 700;
       letter-spacing: -0.02em;
@@ -81,6 +87,7 @@
       font-size: 1.8rem;
     }
 
+    /* ===== HERO ===== */
     .hero {
       min-height: 90vh;
       display: flex;
@@ -122,6 +129,7 @@
       margin: 0 6px;
     }
 
+    /* ===== BOTÕES ===== */
     .btn-primary {
       display: inline-block;
       background: var(--primary);
@@ -137,12 +145,21 @@
       box-shadow: 0 0 20px var(--primary-glow);
       margin-top: 28px;
       letter-spacing: 0.3px;
+      text-align: center;
+      min-height: 56px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .btn-primary:hover {
       background: #c2410c;
       transform: scale(1.02);
       box-shadow: 0 0 30px var(--primary-glow);
+    }
+
+    .btn-primary:active {
+      transform: scale(0.97);
     }
 
     .btn-outline {
@@ -159,6 +176,8 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      text-decoration: none;
+      min-height: 48px;
     }
 
     .btn-outline:hover {
@@ -166,6 +185,54 @@
       border-color: var(--primary-light);
     }
 
+    .btn-youtube {
+      background: rgba(255, 0, 0, 0.1);
+      border: 1.5px solid #FF0000;
+      color: #FF0000;
+      padding: 14px 32px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      min-height: 52px;
+    }
+
+    .btn-youtube:hover {
+      background: rgba(255, 0, 0, 0.2);
+      transform: scale(1.02);
+    }
+
+    .btn-youtube:active {
+      transform: scale(0.97);
+    }
+
+    .btn-pdf {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+      padding: 12px 28px;
+      border-radius: 60px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      backdrop-filter: blur(4px);
+      min-height: 48px;
+    }
+
+    .btn-pdf:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--primary-light);
+    }
+
+    /* ===== SEÇÕES ===== */
     .section {
       padding: 70px 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.04);
@@ -175,6 +242,7 @@
       border-bottom: none;
     }
 
+    /* ===== GRIDS ===== */
     .grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -187,13 +255,18 @@
       gap: 25px;
     }
 
+    /* ===== TABELAS ===== */
     .table-wrap {
       overflow-x: auto;
       margin-top: 10px;
+      -webkit-overflow-scrolling: touch;
+      margin: 10px -4px 0 -4px;
+      padding: 0 4px;
     }
 
     table {
       width: 100%;
+      min-width: 500px;
       border-collapse: collapse;
       font-size: 0.95rem;
     }
@@ -212,6 +285,7 @@
       vertical-align: top;
     }
 
+    /* ===== DESTAQUES ===== */
     .highlight-box {
       background: rgba(234, 88, 12, 0.08);
       border-left: 4px solid var(--primary);
@@ -220,24 +294,36 @@
       margin: 20px 0;
     }
 
-    .video-wrapper {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
+    /* ===== VÍDEO CARD ===== */
+    .video-link-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 30px;
+      background: rgba(255, 0, 0, 0.03);
+      border: 2px dashed rgba(255, 0, 0, 0.2);
       border-radius: 20px;
-      background: #000;
+      text-align: center;
+      gap: 16px;
     }
 
-    .video-wrapper iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
+    .video-link-card i {
+      font-size: 4rem;
+      color: #FF0000;
     }
 
+    .video-link-card h3 {
+      font-size: 1.4rem;
+      color: #f1f5f9;
+    }
+
+    .video-link-card p {
+      color: #94a3b8;
+      max-width: 500px;
+    }
+
+    /* ===== IMC ===== */
     .imc-form input {
       width: 100%;
       padding: 14px 16px;
@@ -249,11 +335,16 @@
       margin-bottom: 14px;
       outline: none;
       transition: 0.2s;
+      min-height: 52px;
     }
 
     .imc-form input:focus {
       border-color: var(--primary);
       box-shadow: 0 0 0 3px var(--primary-glow);
+    }
+
+    .imc-form input::placeholder {
+      color: #64748b;
     }
 
     .imc-result {
@@ -264,6 +355,7 @@
       border: 1px solid rgba(255, 255, 255, 0.06);
     }
 
+    /* ===== CONTADOR ===== */
     .contador {
       font-size: 3.2rem;
       font-weight: 800;
@@ -279,6 +371,16 @@
       background-clip: text;
     }
 
+    /* ===== DICA PERSONALIZADA ===== */
+    .dica-personalizada {
+      background: rgba(234, 88, 12, 0.06);
+      padding: 12px 18px;
+      border-radius: 12px;
+      border-left: 3px solid var(--primary);
+      margin-top: 10px;
+    }
+
+    /* ===== RODAPÉ ===== */
     .footer {
       padding: 40px 0 30px;
       text-align: center;
@@ -292,46 +394,261 @@
       margin: 0 4px;
     }
 
-    .btn-pdf {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: #e2e8f0;
-      padding: 12px 28px;
-      border-radius: 60px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      backdrop-filter: blur(4px);
-    }
+    /* ============================================================ */
+    /* ===== RESPONSIVIDADE ===== */
+    /* ============================================================ */
 
-    .btn-pdf:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: var(--primary-light);
-    }
-
-    .dica-personalizada {
-      background: rgba(234, 88, 12, 0.06);
-      padding: 12px 18px;
-      border-radius: 12px;
-      border-left: 3px solid var(--primary);
-      margin-top: 10px;
+    @media (max-width: 1024px) {
+      .hero h1 {
+        font-size: 3.2rem;
+      }
+      .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 768px) {
+      .hero {
+        min-height: 80vh;
+        padding: 30px 16px;
+      }
+      .hero .glass {
+        padding: 36px 24px;
+      }
       .hero h1 {
         font-size: 2.6rem;
       }
-      .grid-2, .grid-3 {
+      .hero .sub {
+        font-size: 1.1rem;
+      }
+      .grid-2,
+      .grid-3 {
         grid-template-columns: 1fr;
+        gap: 20px;
       }
       .section {
         padding: 50px 0;
       }
       .glass {
         padding: 22px 18px;
+      }
+      h2 {
+        font-size: 1.6rem;
+      }
+      h2 i {
+        font-size: 1.4rem;
+      }
+      .btn-primary {
+        padding: 14px 28px;
+        font-size: 1rem;
+        min-height: 52px;
+        width: 100%;
+        justify-content: center;
+      }
+      .btn-youtube {
+        padding: 14px 24px;
+        font-size: 0.95rem;
+        min-height: 48px;
+        width: 100%;
+        justify-content: center;
+      }
+      .btn-pdf {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+        min-height: 44px;
+        width: 100%;
+        justify-content: center;
+      }
+      .btn-outline {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+        min-height: 44px;
+        width: 100%;
+        justify-content: center;
+      }
+      .video-link-card {
+        padding: 28px 18px;
+      }
+      .video-link-card i {
+        font-size: 3rem;
+      }
+      .video-link-card h3 {
+        font-size: 1.1rem;
+      }
+      .video-link-card p {
+        font-size: 0.9rem;
+      }
+      table {
+        font-size: 0.8rem;
+        min-width: 450px;
+      }
+      th,
+      td {
+        padding: 10px 6px 10px 0;
+      }
+      .contador {
+        font-size: 2.6rem;
+      }
+      .imc-form input {
+        font-size: 0.95rem;
+        padding: 12px 14px;
+        min-height: 48px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 12px;
+      }
+      .hero {
+        min-height: 70vh;
+        padding: 20px 12px;
+      }
+      .hero .glass {
+        padding: 28px 16px;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero .sub {
+        font-size: 0.95rem;
+      }
+      .hero p {
+        font-size: 0.9rem;
+      }
+      .section {
+        padding: 36px 0;
+      }
+      .glass {
+        padding: 18px 14px;
+        border-radius: 18px;
+      }
+      h2 {
+        font-size: 1.3rem;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      h2 i {
+        font-size: 1.2rem;
+      }
+      .badge-endo {
+        font-size: 0.6rem;
+        padding: 3px 10px;
+      }
+      .btn-primary {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        min-height: 48px;
+        margin-top: 20px;
+      }
+      .btn-youtube {
+        padding: 12px 18px;
+        font-size: 0.85rem;
+        min-height: 44px;
+      }
+      .btn-pdf {
+        padding: 10px 18px;
+        font-size: 0.8rem;
+        min-height: 40px;
+      }
+      .btn-outline {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+        min-height: 40px;
+      }
+      .video-link-card {
+        padding: 20px 14px;
+        gap: 12px;
+      }
+      .video-link-card i {
+        font-size: 2.5rem;
+      }
+      .video-link-card h3 {
+        font-size: 1rem;
+      }
+      .video-link-card p {
+        font-size: 0.8rem;
+      }
+      .table-wrap {
+        margin: 8px -8px 0 -8px;
+        padding: 0 8px;
+      }
+      table {
+        font-size: 0.7rem;
+        min-width: 380px;
+      }
+      th,
+      td {
+        padding: 8px 4px 8px 0;
+      }
+      .highlight-box {
+        padding: 14px 16px;
+        font-size: 0.9rem;
+      }
+      .contador {
+        font-size: 2.2rem;
+      }
+      .imc-form input {
+        font-size: 0.9rem;
+        padding: 10px 12px;
+        min-height: 44px;
+      }
+      .imc-result {
+        padding: 12px 14px;
+        font-size: 0.9rem;
+      }
+      .dica-personalizada {
+        padding: 10px 14px;
+        font-size: 0.85rem;
+      }
+      .footer {
+        padding: 30px 0 20px;
+        font-size: 0.8rem;
+      }
+      .hero .btn-pdf {
+        width: 100%;
+        justify-content: center;
+      }
+      .hero div[style*="flex-wrap"] {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+      .hero .glass {
+        padding: 20px 12px;
+      }
+      .glass {
+        padding: 14px 10px;
+        border-radius: 14px;
+      }
+      h2 {
+        font-size: 1.1rem;
+      }
+      table {
+        font-size: 0.65rem;
+        min-width: 320px;
+      }
+      .btn-primary {
+        font-size: 0.8rem;
+        padding: 10px 16px;
+        min-height: 44px;
+      }
+    }
+
+    @media (hover: none) {
+      .glass:hover {
+        transform: none;
+      }
+      .btn-primary:hover {
+        transform: none;
+      }
+      .btn-youtube:hover {
+        transform: none;
       }
     }
   </style>
@@ -426,11 +743,11 @@
           <table>
             <thead><tr><th>Exercício</th><th>Tempo / Reps</th><th>Descanso</th><th>Execução</th></tr></thead>
             <tbody>
-              <tr><td>Polichinelo</td><td>30s</td><td>15s</td><td>Braços e pernas abertos simultaneamente, mantenha ritmo. Respire de forma controlada.</td></tr>
-              <tr><td>Agachamento com salto</td><td>30s</td><td>15s</td><td>Agache até 90°, salte com explosão, aterrisse suavemente. Proteja os joelhos.</td></tr>
-              <tr><td>Burpee (sem salto)</td><td>30s</td><td>15s</td><td>De pé, agache, coloque as mãos no chão, jogue os pés para trás, retorne e levante. Evite impacto nos joelhos.</td></tr>
-              <tr><td>Prancha dinâmica (alternando braços)</td><td>30s</td><td>15s</td><td>Prancha frontal, alternância de apoio nos antebraços e mãos. Mantenha abdômen contraído.</td></tr>
-              <tr><td>Afundo alternado</td><td>30s</td><td>15s</td><td>Passos alternados para frente, desça até joelho traseiro próximo ao chão. Controle a descida.</td></tr>
+              <tr><td>Polichinelo</td><td>30s</td><td>15s</td><td>Braços e pernas abertos simultaneamente, mantenha ritmo.</td></tr>
+              <tr><td>Agachamento com salto</td><td>30s</td><td>15s</td><td>Agache até 90°, salte com explosão, aterrisse suavemente.</td></tr>
+              <tr><td>Burpee (sem salto)</td><td>30s</td><td>15s</td><td>De pé, agache, coloque as mãos no chão, jogue os pés para trás, retorne e levante.</td></tr>
+              <tr><td>Prancha dinâmica (alternando braços)</td><td>30s</td><td>15s</td><td>Prancha frontal, alternância de apoio nos antebraços e mãos.</td></tr>
+              <tr><td>Afundo alternado</td><td>30s</td><td>15s</td><td>Passos alternados para frente, desça até joelho traseiro próximo ao chão.</td></tr>
             </tbody>
           </table>
         </div>
@@ -440,11 +757,11 @@
           <table>
             <thead><tr><th>Exercício</th><th>Tempo / Reps</th><th>Descanso</th><th>Execução</th></tr></thead>
             <tbody>
-              <tr><td>Escalador (montanhista)</td><td>40s</td><td>20s</td><td>Prancha, alterne puxando os joelhos em direção ao peito. Mantenha o core firme.</td></tr>
-              <tr><td>Joelho alto</td><td>40s</td><td>20s</td><td>Corra no lugar elevando os joelhos acima da linha do quadril. Braços acompanham.</td></tr>
-              <tr><td>Agachamento isométrico</td><td>40s</td><td>20s</td><td>Mantenha a posição de agachamento a 90° por todo o tempo. Aperte glúteos.</td></tr>
-              <tr><td>Flexão diamante</td><td>40s (máx reps)</td><td>20s</td><td>Mãos próximas formando um diamante, desça até o peito quase tocar as mãos. Expire ao subir.</td></tr>
-              <tr><td>Pular corda imaginário</td><td>40s</td><td>20s</td><td>Simule pular corda com leve salto, mantenha ritmo constante e respiração.</td></tr>
+              <tr><td>Escalador (montanhista)</td><td>40s</td><td>20s</td><td>Prancha, alterne puxando os joelhos em direção ao peito.</td></tr>
+              <tr><td>Joelho alto</td><td>40s</td><td>20s</td><td>Corra no lugar elevando os joelhos acima da linha do quadril.</td></tr>
+              <tr><td>Agachamento isométrico</td><td>40s</td><td>20s</td><td>Mantenha a posição de agachamento a 90° por todo o tempo.</td></tr>
+              <tr><td>Flexão diamante</td><td>40s (máx reps)</td><td>20s</td><td>Mãos próximas formando um diamante, desça até o peito quase tocar as mãos.</td></tr>
+              <tr><td>Pular corda imaginário</td><td>40s</td><td>20s</td><td>Simule pular corda com leve salto, mantenha ritmo constante.</td></tr>
             </tbody>
           </table>
         </div>
@@ -461,21 +778,27 @@
     </div>
   </section>
 
-  <!-- VÍDEO AULA -->
+  <!-- VÍDEO AULA - Link para YouTube -->
   <section class="section" id="video">
     <div class="container">
       <div class="glass">
-        <h2><i class="fas fa-video"></i> Vídeo Aula – HIIT em Casa</h2>
+        <h2><i class="fab fa-youtube"></i> Master Class – Estratégias para Endomorfo</h2>
         <p style="color: #94a3b8; margin-bottom: 16px;">
-          Sessão de HIIT com polichinelos, agachamentos e burpees – ideal para queima de gordura.
+          Aula completa de Renato Cariani sobre as melhores estratégias de treino, dieta e estilo de vida para o biotipo endomorfo.
         </p>
-        <div class="video-wrapper">
-          <!-- Link de exemplo – substitua pelo vídeo de HIIT em casa -->
-          <iframe src="https://www.youtube.com/embed/0e8R7qBz5BY" allowfullscreen></iframe>
+        <div class="video-link-card">
+          <i class="fab fa-youtube"></i>
+          <h3>📺 Tudo Que um Endomorfo Precisa Saber</h3>
+          <p>
+            Assista à master class no canal do Renato Cariani e aprenda a estruturar sua rotina para transformar seu corpo e acelerar o metabolismo.
+          </p>
+          <a href="https://youtu.be/ihMBd28tRcQ" target="_blank" rel="noopener noreferrer" class="btn-youtube">
+            <i class="fab fa-youtube"></i> ASSISTIR NO YOUTUBE
+          </a>
+          <p style="font-size: 0.75rem; color: #64748b; margin-top: 8px;">
+            <i class="fas fa-external-link-alt" style="color: var(--primary-light);"></i> O vídeo será aberto em uma nova aba. Conteúdo do canal Renato Cariani.
+          </p>
         </div>
-        <p style="font-size: 0.75rem; color: #64748b; margin-top: 8px;">
-          <i class="fas fa-exclamation-triangle" style="color: var(--primary-light);"></i> Vídeo ilustrativo. Substitua pelo treino HIIT em casa recomendado para endomorfos.
-        </p>
       </div>
     </div>
   </section>
@@ -491,7 +814,7 @@
             <tbody>
               <tr><td>Whey Isolado (zero carb)</td><td>1 scoop (25g)</td><td>Pós-treino e ceia</td><td>Recuperação muscular sem adição de carboidratos</td></tr>
               <tr><td>Cafeína (anidra)</td><td>200-300mg</td><td>30 min pré-treino</td><td>Aumento da termogênese e foco</td></tr>
-              <tr><td>L-Carnitina</td><td>2g</td><td>Pré-treino ou em jejum</td><td>Transporte de gorduras para mitocôndrias, otimizando a queima</td></tr>
+              <tr><td>L-Carnitina</td><td>2g</td><td>Pré-treino ou em jejum</td><td>Transporte de gorduras para mitocôndrias</td></tr>
             </tbody>
           </table>
         </div>
@@ -511,7 +834,7 @@
           <div>
             <i class="fas fa-moon" style="color: var(--primary-light); font-size: 1.8rem;"></i>
             <h4 style="margin: 8px 0 4px;">Sono regulador</h4>
-            <p>Dormir 7-8h por noite ajuda a controlar hormônios relacionados ao apetite e ao estresse. Priorize horários fixos.</p>
+            <p>Dormir 7-8h por noite ajuda a controlar hormônios relacionados ao apetite e ao estresse.</p>
           </div>
           <div>
             <i class="fas fa-water" style="color: var(--primary-light); font-size: 1.8rem;"></i>
@@ -535,9 +858,9 @@
         <h2><i class="fas fa-calculator"></i> Calcule seu IMC</h2>
         <div class="imc-form" style="max-width: 500px;">
           <label style="display: block; margin-bottom: 4px; font-weight: 500;">Peso (kg)</label>
-          <input type="number" id="peso" placeholder="Ex: 90" step="0.1" />
+          <input type="number" id="peso" placeholder="Ex: 90" step="0.1" inputmode="decimal" />
           <label style="display: block; margin-bottom: 4px; font-weight: 500;">Altura (cm)</label>
-          <input type="number" id="altura" placeholder="Ex: 175" step="0.1" />
+          <input type="number" id="altura" placeholder="Ex: 175" step="0.1" inputmode="decimal" />
           <button class="btn-primary" onclick="calcularIMC()" style="width: 100%; justify-content: center; margin-top: 6px;">
             <i class="fas fa-calculator" style="margin-right: 10px;"></i> CALCULAR IMC
           </button>
@@ -575,7 +898,6 @@
   </footer>
 
   <script>
-    // CONTADOR ANIMADO
     function animarContador() {
       const el = document.getElementById('contadorNumero');
       const max = 10000;
@@ -591,7 +913,6 @@
       }, 30);
     }
 
-    // CALCULADORA IMC
     function calcularIMC() {
       const peso = parseFloat(document.getElementById('peso').value);
       const alturaCm = parseFloat(document.getElementById('altura').value);
